@@ -13,7 +13,7 @@ namespace Ex01_02
             printDiamond(5, 1);
         }
 
-        static private void printDiamond(int i_LongestRow, int i_CurrentRow)
+        static public void printDiamond(int i_LongestRow, int i_CurrentRow)
         {
             if (i_LongestRow <= i_CurrentRow)
             {
@@ -27,7 +27,7 @@ namespace Ex01_02
             }
         }
 
-        static private void printRowOfDiamond(int i_LongestRow, int i_RowToPrint)
+        static public void printRowOfDiamond(int i_LongestRow, int i_RowToPrint)
         {
             int numberOfSpaces = i_LongestRow - i_RowToPrint;
             int numberOfStars = i_RowToPrint * 2 - 1;
