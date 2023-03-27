@@ -27,21 +27,21 @@
             bool v_isGoingDownSeries = CheckIfNumberIsGoingDownSerias(decimalNumber);
             bool v_isPalindrome = CheckIfNumberIsPalindrome(decimalNumber);
             if (v_isGoingDownSeries)
-                {
+            {
                     goingDownSeriesCounter++;
-                }
-                
+            }
+
             if (v_isPalindrome)
-                {
+            {
                     palindromeCounter++;
-                }
-                
+            }
+
             if (v_isNumberDevideBy4)
-                {
+            {
                     devidedBy4counter++;
-                }
-               
+            }    
         }
+
         PrintSummaryScreen(zeroCounter, onesCounter, devidedBy4counter, goingDownSeriesCounter, palindromeCounter);
     }
     public static bool CheckIfNumberIsBinary(string i_userInput)
