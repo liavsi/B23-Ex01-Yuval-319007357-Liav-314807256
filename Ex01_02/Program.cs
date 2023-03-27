@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ex01_02
+﻿namespace Ex01_02
 {
     public class Program
     {
@@ -34,15 +28,15 @@ namespace Ex01_02
 
             for (int i = 0; i < numberOfSpaces; i++)
             {
-                Console.Write(" ");
+                System.Console.Write(" ");
             }
 
             for (int i = 0; i < numberOfStars; i++)
             {
-                Console.Write("*");
+                System.Console.Write("*");
             }
 
-            Console.WriteLine();
+            System.Console.WriteLine();
         }
     }
 }
