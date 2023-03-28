@@ -24,6 +24,7 @@
             }
             bool isNumberDevideBy4 = CheckIfNumberIsDevidedBy4(userInput, stringLength);
             int decimalNumber = ConvertBinaryStringToDecimalAndCountZEROandONES(userInput, ref zeroCounter, ref onesCounter);
+
             bool isGoingDownSeries = CheckIfNumberIsGoingDownSerias(decimalNumber);
             bool isPalindrome = CheckIfNumberIsPalindrome(decimalNumber);
             if (isGoingDownSeries)
@@ -38,10 +39,11 @@
                 
             if (isNumberDevideBy4)
                 {
+
                     devidedBy4counter++;
-                }
-               
+            }    
         }
+
         PrintSummaryScreen(zeroCounter, onesCounter, devidedBy4counter, goingDownSeriesCounter, palindromeCounter);
     }
     public static bool CheckIfNumberIsBinary(string i_userInput)
