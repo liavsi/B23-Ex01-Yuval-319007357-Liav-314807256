@@ -11,32 +11,32 @@
         for (int i = 0; i < 3; i++)
         {
             System.Console.WriteLine("\nPlease enter 3 binary numbers, 8 digits each.\ntype each number and press ENTER to insert it\n");
-            string userInput = System.Console.ReadLine(); ;
+            string userInput = System.Console.ReadLine(); 
             int stringLength = userInput.Length;
-            bool v_isBinary = CheckIfNumberIsBinary(userInput);
+            bool isBinary = CheckIfNumberIsBinary(userInput);
 
-            while (stringLength != 8 || !v_isBinary)
+            while (stringLength != 8 || !isBinary)
             {
                 System.Console.WriteLine("\nYour input is invalid, please try again\n");
                 userInput = System.Console.ReadLine();
                 stringLength = userInput.Length;
-                v_isBinary = CheckIfNumberIsBinary(userInput);
+                isBinary = CheckIfNumberIsBinary(userInput);
             }
-            bool v_isNumberDevideBy4 = CheckIfNumberIsDevidedBy4(userInput, stringLength);
+            bool isNumberDevideBy4 = CheckIfNumberIsDevidedBy4(userInput, stringLength);
             int decimalNumber = ConvertBinaryStringToDecimalAndCountZEROandONES(userInput, ref zeroCounter, ref onesCounter);
-            bool v_isGoingDownSeries = CheckIfNumberIsGoingDownSerias(decimalNumber);
-            bool v_isPalindrome = CheckIfNumberIsPalindrome(decimalNumber);
-            if (v_isGoingDownSeries)
+            bool isGoingDownSeries = CheckIfNumberIsGoingDownSerias(decimalNumber);
+            bool isPalindrome = CheckIfNumberIsPalindrome(decimalNumber);
+            if (isGoingDownSeries)
                 {
                     goingDownSeriesCounter++;
                 }
                 
-            if (v_isPalindrome)
+            if (isPalindrome)
                 {
                     palindromeCounter++;
                 }
                 
-            if (v_isNumberDevideBy4)
+            if (isNumberDevideBy4)
                 {
                     devidedBy4counter++;
                 }
@@ -77,10 +77,10 @@
     }
     public static bool CheckIfNumberIsGoingDownSerias(int i_decimalNumber)
     {
-        bool v_isGoingDown = true;
+        bool isGoingDown = true;
         int prevDigit = i_decimalNumber % 10;
 
-        while (i_decimalNumber > 0 && v_isGoingDown)
+        while (i_decimalNumber > 0 && isGoingDown)
         {
             i_decimalNumber = i_decimalNumber / 10;
             int currentDigit = i_decimalNumber % 10;
@@ -91,11 +91,11 @@
             }
             else
             {
-                v_isGoingDown = false;
+                isGoingDown = false;
             }
         }
 
-        return v_isGoingDown;
+        return isGoingDown;
 
     }
     public static bool CheckIfNumberIsPalindrome(int i_decimalNumber)
