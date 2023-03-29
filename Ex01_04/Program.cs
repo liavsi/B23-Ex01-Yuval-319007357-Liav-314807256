@@ -7,35 +7,32 @@
         }
         public static void StringsAnalysis()
         {
-            System.Console.WriteLine(string.Format("Please enter a {0} characters word of english letters only or numbers only.\n(please use capital letters only or lower-case letters only per word)", 6));
-            string userInput = System.Console.ReadLine();
-            bool isMixedLettersAndNumbers = CheckUserInput(userInput);
+            System.Console.WriteLine(string.Format("Please enter a {0} characters word of english letters only or numbers only.", 6));
+            GetAndCheckUserInput(out string userInput, out bool isMixedLettersAndNumbers);
             while(isMixedLettersAndNumbers)
             {
                 System.Console.WriteLine("{0} is an invalid input\nPlease try again", userInput);
-                userInput = System.Console.ReadLine();
-                isMixedLettersAndNumbers = CheckUserInput(userInput);
-            }
-            System.Collections.Generic.KeyValuePair<bool, int> isANumberPair = new System.Collections.Generic.KeyValuePair<bool, int>(false, 0);
-            bool isPalindrom = CheckIfStringIsPalindrome(ref isANumberPair, userInput);
+                GetAndCheckUserInput(out userInput, out isMixedLettersAndNumbers);
+        }
+            int inputNumber = CheckIfStringIsPalindromeAndANumber(out bool isANumber, userInput, out bool isPalindrom);
             bool isDevidedBy3 = true;
             int uppercaseCount = 0; 
-            if (isANumberPair.Key)
+            if (isPalindrom)
             {
-                 isDevidedBy3 = isANumberPair.Value % 3 == 0;
+                 isDevidedBy3 = inputNumber % 3 == 0;
             }
             else
             {
                  uppercaseCount = CountUpperCaseLettersInString(userInput);
             }
-            SummaryScreen(isPalindrom, isANumberPair.Key, isDevidedBy3, uppercaseCount);
+            SummaryScreen(isPalindrom, isANumber, isDevidedBy3, uppercaseCount);
         }
-        public static bool CheckUserInput(string i_userInput)
+        public static void GetAndCheckUserInput(out string o_userInput, out bool o_isMixedLettersAndNumbers)
         {
             bool containsLetter = false;
             bool containsDigit = false;
-
-            foreach (char c in i_userInput)
+            o_userInput = System.Console.ReadLine();
+            foreach (char c in o_userInput)
             {
                 if (System.Char.IsLetter(c))
                 {
@@ -46,16 +43,21 @@
                     containsDigit = true;
                 }
             }
-            return (containsLetter && containsDigit);
+            o_isMixedLettersAndNumbers = containsLetter && containsDigit;
         }
-        public static bool CheckIfStringIsPalindrome(ref System.Collections.Generic.KeyValuePair<bool, int> io_pair, string i_userInput)
+        public static int CheckIfStringIsPalindromeAndANumber(out bool o_isANumber, string i_userInput, out bool o_isPalindrom)
         {
             int startIndex = 0, endIndex = i_userInput.Length-1;
-            if(System.Char.IsDigit(i_userInput[startIndex]))
+            o_isANumber = false;
+            o_isPalindrom = IsPalindrome(i_userInput, startIndex, endIndex);
+
+            if (System.Char.IsDigit(i_userInput[startIndex]))
             {
-             io_pair = new System.Collections.Generic.KeyValuePair<bool, int>(true, System.Convert.ToInt32(i_userInput));
+                    o_isANumber = true;
+                    return System.Convert.ToInt32(i_userInput);
             }
-            return IsPalindrome(i_userInput, startIndex, endIndex);
+            return 0;
+            
         }
         public static bool IsPalindrome(string i_string, int i_start, int i_end)
         {
@@ -72,7 +74,7 @@
             return IsPalindrome(i_string, i_start + 1, i_end - 1);
         }
       public static int CountUpperCaseLettersInString(string i_userInput)
-    {
+      {
         int uppercaseCount = 0;
 
         foreach (char c in i_userInput)
@@ -83,21 +85,23 @@
             }
         }
         return uppercaseCount;
-    }
+      }
     public static void SummaryScreen(bool i_isPalindrom, bool i_isANumberBool, bool i_isDevidedBy3, int i_uppercaseCount)
     {
-        System.Console.WriteLine("\nSummary:\n================\n");
-        System.Console.WriteLine(string.Format("1. The string is{0}a palindrome\n2. The string is{1}a number", i_isPalindrom?" ":" not ", i_isANumberBool? " ": " not "));
+        System.Console.WriteLine("Summary:");
+        System.Console.WriteLine("================");
+        System.Console.WriteLine(string.Format(@"1. The string is{0}a palindrome
+2. The string is{1}a number", i_isPalindrom?" ":" not ", i_isANumberBool? " ": " not "));
         if(i_isANumberBool)
         {
-            System.Console.WriteLine(string.Format("3. {0}\n", i_isDevidedBy3 ? "The number devides by 3" : " The number doesn't devides by 3 "));
+            System.Console.WriteLine(string.Format("3. {0}", i_isDevidedBy3 ? "The number devides by 3" : " The number doesn't devides by 3 "));
         }
         else
         {
-            System.Console.WriteLine(string.Format("3. The number of upper-case letters is: {0}\n", i_uppercaseCount));
+            System.Console.WriteLine(string.Format("3. The number of upper-case letters is: {0}", i_uppercaseCount));
         }
-        System.Console.WriteLine("================\n");
-        System.Console.WriteLine("Press any key to exit\n");
+        System.Console.WriteLine("================");
+        System.Console.WriteLine("Press any key to exit");
         System.Console.ReadLine();
     }
 }
