@@ -17,7 +17,7 @@
             int inputNumber = CheckIfStringIsPalindromeAndANumber(out bool isANumber, userInput, out bool isPalindrom);
             bool isDevidedBy3 = true;
             int uppercaseCount = 0; 
-            if (isPalindrom)
+            if (isANumber)
             {
                  isDevidedBy3 = inputNumber % 3 == 0;
             }
