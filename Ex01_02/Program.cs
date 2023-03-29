@@ -1,4 +1,6 @@
-﻿namespace Ex01_02
+﻿using System;
+
+namespace Ex01_02
 {
     public class Program
     {
@@ -28,15 +30,15 @@
 
             for (int i = 0; i < numberOfSpaces; i++)
             {
-                System.Console.Write(" ");
+                Console.Write(" ");
             }
 
             for (int i = 0; i < numberOfStars; i++)
             {
-                System.Console.Write("*");
+                Console.Write("*");
             }
 
-            System.Console.WriteLine();
+            Console.WriteLine();
         }
     }
 }

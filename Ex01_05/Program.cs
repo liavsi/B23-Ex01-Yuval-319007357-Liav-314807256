@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System;
 
 namespace Ex01_05
 {
@@ -24,7 +25,7 @@ namespace Ex01_05
             responeToUser.AppendFormat("{0} is the minimum digit in this number\n", minDigit);
             responeToUser.AppendFormat("{0} digits are divided by 3\n", countDividedBy3);
             responeToUser.AppendFormat("{0:f} is the average of the digits", avarageOfDigits);
-            System.Console.WriteLine(responeToUser);
+            Console.WriteLine(responeToUser);
         }
 
         public static string GetValidInputFromUser(string i_message)
@@ -36,11 +37,11 @@ namespace Ex01_05
             {
                 if(!validInput)
                 {
-                    System.Console.WriteLine("invalid input, try again");
+                    Console.WriteLine("invalid input, try again");
                     validInput = true;
                 }
-                System.Console.WriteLine(i_message);
-                numberAsString = System.Console.ReadLine();
+                Console.WriteLine(i_message);
+                numberAsString = Console.ReadLine();
                 if (numberAsString.Length == 6)
                 {
                     for (int i = 0; i < 6 && validInput; i++)

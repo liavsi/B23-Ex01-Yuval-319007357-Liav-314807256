@@ -1,4 +1,5 @@
-﻿public class Program
+﻿using System;
+public class Program
 {
     public static void Main()
     {
@@ -7,15 +8,15 @@
     public static void BinaryToDecimalAndStats()
     {
         int zeroCounter = 0, onesCounter = 0, devidedBy4counter = 0, goingDownSeriesCounter = 0, palindromeCounter = 0;
-        System.Console.WriteLine("Please enter 3 binary numbers, 8 digits each.");
-        System.Console.WriteLine("type each number and press ENTER to insert it");
+        Console.WriteLine("Please enter 3 binary numbers, 8 digits each.");
+        Console.WriteLine("type each number and press ENTER to insert it");
         
         for (int i = 0; i < 3; i++)
         { 
             GetStringAndCheckIfNumberIsBinary(out string userInput, out int stringLength, out bool isBinary);
             while (stringLength != 8 || !isBinary)
             {
-                System.Console.WriteLine("Your input is invalid, please try again");
+                Console.WriteLine("Your input is invalid, please try again");
                 GetStringAndCheckIfNumberIsBinary(out userInput, out stringLength, out isBinary);
             }
             bool isNumberDevideBy4 = CheckIfNumberIsDevidedBy4(userInput, stringLength);
@@ -114,16 +115,16 @@
     }
     public static void PrintSummaryScreen(int i_zerosCounter, int i_onesCounter, int i_devidedBy4counter, int i_goingDownSeriesCounter, int i_palindromeCounter)
     {
-        System.Console.WriteLine("Summary:");
-        System.Console.WriteLine("================");
-        System.Console.WriteLine(string.Format(@"Average number of zeros: {0}
+        Console.WriteLine("Summary:");
+        Console.WriteLine("================");
+        Console.WriteLine(string.Format(@"Average number of zeros: {0}
 Average number of ones: {1}
 Number of numbers that devides by 4: {2}
 Number of numbers that are a going down series: {3}
 Number of numbers that are a palindrome: {4}", i_zerosCounter / 3, i_onesCounter / 3, i_devidedBy4counter, i_goingDownSeriesCounter, i_palindromeCounter));
-        System.Console.WriteLine("================\n");
-        System.Console.WriteLine("Press any key to exit\n");
-        System.Console.ReadLine();
+        Console.WriteLine("================\n");
+        Console.WriteLine("Press any key to exit\n");
+        Console.ReadLine();
 
     }
     public static bool CheckIfNumberIsDevidedBy4(string i_userInput, int i_stringLength)
