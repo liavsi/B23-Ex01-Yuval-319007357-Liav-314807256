@@ -81,10 +81,7 @@ namespace Ex01_05
             for (int i = 0; i < 6; i++)
             {
                 currentDigit = int.Parse(i_NumberAsString[i].ToString());
-                if (minDigit > currentDigit)
-                {
-                    minDigit = currentDigit;
-                }
+                minDigit = Math.Min(currentDigit, minDigit);
             }
 
             return minDigit;
