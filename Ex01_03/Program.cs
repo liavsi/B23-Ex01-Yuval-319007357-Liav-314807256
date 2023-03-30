@@ -1,4 +1,4 @@
-﻿
+﻿using System;
 
 namespace Ex01_03
 {
@@ -15,11 +15,11 @@ namespace Ex01_03
             int defaultHeight = 9;
             string invalidInputMessage = string.Format("height must be a positive value!\ndefault value {0} will be printed", defaultHeight);
 
-            System.Console.WriteLine("Please enter the height of the diamond:(then press enter) ");
+            Console.WriteLine("Please enter the height of the diamond:(then press enter) ");
             int inputHeight = int.Parse(System.Console.ReadLine());
             if (inputHeight < 0)
             {
-                System.Console.WriteLine(invalidInputMessage);
+                Console.WriteLine(invalidInputMessage);
                 inputHeight = defaultHeight;
             }
 
