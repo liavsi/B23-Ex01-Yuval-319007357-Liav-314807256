@@ -28,7 +28,7 @@ namespace Ex01_05
             Console.WriteLine(responeToUser);
         }
 
-        public static string GetValidInputFromUser(string i_message)
+        public static string GetValidInputFromUser(string i_Message)
         {
             bool validInput = true;
             string numberAsString;
@@ -40,7 +40,7 @@ namespace Ex01_05
                     Console.WriteLine("invalid input, try again");
                     validInput = true;
                 }
-                Console.WriteLine(i_message);
+                Console.WriteLine(i_Message);
                 numberAsString = Console.ReadLine();
                 if (numberAsString.Length == 6)
                 {
