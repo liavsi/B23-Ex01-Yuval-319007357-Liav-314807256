@@ -15,16 +15,16 @@ namespace Ex01_05
             int biggerThanFirst, minDigit, countDividedBy3;
             float avarageOfDigits;
 
-            string userInputNumberAsString = GetValidInputFromUser("Please enter a number with 6 digits(and press enter):");
+            string inputAsString = GetValidInputFromUser("Please enter a number with 6 digits(and press enter):");
             StringBuilder responeToUser = new StringBuilder("", 200);
-            biggerThanFirst = BiggerThanFirst(userInputNumberAsString);
-            minDigit = SmallestDigit(userInputNumberAsString);
-            countDividedBy3 = CountDigitsDividedBy3(userInputNumberAsString);
-            avarageOfDigits = AverageOfDigits(userInputNumberAsString);
+            biggerThanFirst = BiggerThanFirst(inputAsString);
+            minDigit = SmallestDigit(inputAsString);
+            countDividedBy3 = CountDigitsDividedBy3(inputAsString);
+            avarageOfDigits = AverageOfDigits(inputAsString);
             responeToUser.AppendFormat("{0} digits are bigger than the one's digit\n", biggerThanFirst);
             responeToUser.AppendFormat("{0} is the minimum digit in this number\n", minDigit);
             responeToUser.AppendFormat("{0} digits are divided by 3\n", countDividedBy3);
-            responeToUser.AppendFormat("{0:f} is the average of the digits", avarageOfDigits);
+            responeToUser.AppendFormat("{0:f} is the average of the digits\n", avarageOfDigits);
             Console.WriteLine(responeToUser);
         }
 
@@ -38,16 +38,12 @@ namespace Ex01_05
                 if(!validInput)
                 {
                     Console.WriteLine("invalid input, try again");
-                    validInput = true;
                 }
                 Console.WriteLine(i_Message);
                 numberAsString = Console.ReadLine();
-                if (numberAsString.Length == 6)
+                if (numberAsString.Length == 6 && int.TryParse(numberAsString,out int number))
                 {
-                    for (int i = 0; i < 6 && validInput; i++)
-                    {
-                        validInput = char.IsDigit(numberAsString[i]); // if one char is not a digit "validInput" == false
-                    }
+                    validInput = true;
                 }
                 else
                 {
